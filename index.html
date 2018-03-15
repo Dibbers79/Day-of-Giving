@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Elmhurst College Day of Giving</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" href="http://elmhurst.edu/favicon.ico" type="image/x-icon"/>
+		<link rel="stylesheet" href="css/vendor/foundation.min.css">
+		<link rel="stylesheet" href="css/vendor/flipclock.css">
+		<link rel="stylesheet" href="font-awesome-4.7/css/font-awesome.min.css">
+		<link rel="stylesheet" href="http://cloud.typography.com/7521272/611542/css/fonts.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="js/vendor/foundation.min.js"></script>
+	</head>
+	<style>
+		body, .body-font { font-family: 'Gotham XNarrow A', 'Gotham XNarrow B', sans-serif; color: #333; }
+		h1, h2 { font-family: 'Hoefler Titling A', 'Hoefler Titling B', serif; }
+		time { font-weight: bolder; }
+		footer { background-color: #CCC; }
+		q:before { content: open-quote; color: #00A1DF; font-size: 48px; position: absolute; top: -20px; left: -20px; }
+		q:after { content: close-quote; color: #00A1DF; font-size: 48px; position: absolute; right: -15px; bottom: -30px; }
+		.ec-dropshadow { box-shadow: 0 0 20px rgba(0,0,0,0.25); }
+		.ec-hero {
+			height: 500px;
+			background-size: cover;
+			background-attachment: fixed;
+			background-position: top center;
+			background-repeat: no-repeat;
+			padding-top: 50px; }
+			.ec-hero img {
+				display: block;
+				margin: auto;
+				width: 400px;
+			}
+		.ec-overlay {
+			position: relative;
+			top: -100px; }
+		.ec-bolder { font-weight: bolder; }
+		.ec-flex-list {
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: space-around;
+			align-items: center; }
+			.ec-flex-list div { flex: 0 1 24%; }
+		.ec-super-size {
+			font-size: 90px;
+			font-weight: bolder; }
+		.ec-dark-blue { color: #0D2240; }
+		.ec-light-blue { color: #00A1DF; }
+		.alt-blue-rows p:nth-of-type(even) { color: #00A1DF; }
+		.fa {
+			font-size: 3em;
+			margin: 5px; }
+		#Minus-20 { margin-bottom: -10px; }
+		#Minus-100 { margin-bottom: -100px; }
+		#EC-Hero1 { background-image: url(images/EC-hero1.jpg); }
+		#EC-Hero2 { background-image: url(images/EC-hero2.jpg); }
+		#Facebook { color: #3b5998; }
+		#Twitter { color: #4099FF; }
+		#Instagram { color: #fb3958; }
+			#Facebook:hover, #Twitter:hover, #Instagram:hover { color: #333; }
+
+		/* Foundation mods */
+		.top-bar {
+			background-color: white;
+			width:100%;
+			z-index: 2;
+			padding-top: 20px; }
+			.top-bar img { height: 30px; }
+
+		/* Flipclock mods */
+		.flip-clock-wrapper { margin: auto; }
+		#Short-Count { max-width: 460px; }
+		#Long-Count { max-width: 620px; }
+		@media print, screen and (max-width: 666px) {
+			.flip-clock-wrapper { max-width: 320px; }
+				.flip-clock-wrapper ul { margin-bottom: 30px; }
+			.minutes { clear: both; }
+			.hack-25 { margin-left: inherit !important; } }
+
+		/* Responsive mods */
+		.ec-mobile-only { display: none; }
+		@media print, screen and (max-width: 40em) {
+			.ec-mobile-only-center { width: 100%; }
+				.ec-mobile-only-center img {
+					display: block;
+					margin: auto; }
+			.ec-mobile-hide { display: none; }
+			.ec-mobile-only { display: block; }
+			.ec-flex-list div { flex: 0 1 48%; } }
+
+		/* to be added */
+		.ec-alt-blue { background-color: #1779ba !important;}
+		.ec-dark-blue-bg { background-color: #0D2240 !important;}
+		.flex-list { display: flex; }
+		.flex-center{ justify-content: center; }
+		.flex-around { justify-content: space-around; }
+		.balls {
+			display: flex;
+			margin: 5px;
+			border-radius: 50%;
+			background-color: #00A1DF;
+			color: white; }
+			.balls p, .balls h1 {
+				color: white;
+				align-items: center;
+				margin: auto; }
+			.balls-big {
+				height: 200px;
+				width: 200px; }
+			.balls-mid {
+				height: 175px;
+				width: 175px; }
+			.balls-small {
+				height: 110px;
+				width: 110px; }
+		.hack-25 { margin-left: 16%; }
+		#myProgress {
+			width: 100%;
+			background-color: grey;
+		}
+		#myBar {
+			width: 87%;
+			height: 40px;
+			background-color: #00A1DF;
+			text-align: center;
+			line-height: 40px;
+			color: white;
+		}
+		#myProgress2 {
+			width: 100%;
+			background: #fff url("images/timeline.png") no-repeat center;
+			background-size: cover;
+			padding-left: 20%;
+		}
+		#myBar2 {
+			width: 15%;
+			height: 40px;
+			background-color: #00A1DF;
+			text-align: center;
+			line-height: 40px;
+			color: white; 
+		}
+	</style>
+	<body>
+		<header data-sticky-container>
+			<div class="top-bar ec-dropshadow Minus-20" data-sticky data-options="marginTop:0;">
+				<div class="top-bar-title ec-mobile-only-center">
+					<a href="http://www.elmhurst.edu/"><img src="images/EC-logo.jpg" alt="Elmhurst College logo"></a>
+				</div>
+				<nav class="top-bar-right ec-mobile-hide">
+					<a href="https://give.evertrue.com/elmhurst" class="button" target="_blank">Make A Gift</a>
+				</nav>
+			</div>
+		</header>
+		<main>
+			<figure id="EC-Hero1" class="ec-hero expanded">
+				<figcaption>
+					<img src="images/DayofGiving-logo.png" alt="The Power of Many, Day of Giving">
+				</figcaption>
+			</figure>
+			<div class="row">
+				<section class="column large-9 small-centered ec-overlay">
+					<div class="responsive-embed widescreen ec-dropshadow">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/TOOTw314eIo?rel=0" frameborder="0" allowfullscreen></iframe>
+					</div>
+					<div class="column expanded ec-mobile-only">
+						<br>
+						<a href="https://give.evertrue.com/elmhurst" class="button large expanded" target="_blank">Make A Gift</a>
+						<br>
+					</div>
+					<h1 class="text-center body-font ec-light-blue ec-bolder">Thank you for your support on April 20!</h1>
+					<!--<div class="column large-6">
+						<p>On April 20, the Elmhurst College community came together for Day of Giving, an annual event dedicated to giving back and transforming lives.</p>
+						<p>It was a wonderful opportunity to reflect on your own Elmhurst experience and to support today’s students through funding for scholarships, international study, internships, extracurricular activities and more.</p>
+						<p>Please join us today as we celebrate Elmhurst’s Day of Giving. Together, we can leverage the power of many and create a bright future for our students.</p>
+					</div>
+					<div class="column large-6">
+						<div style="position: relative;">
+							<q>I’m so thankful for the scholarships Elmhurst College has provided to me, because without scholarships I wouldn't be here. You as an individual encompass so much power to affect others. And when your power combines with the power of 10 or 100 individuals around you, together you can change lives. That’s the power of many.</q>
+						</div>
+						<br>
+						<p>-<strong>Simone Salter</strong> ’19</p>
+					</div>
+					<hr>-->
+				</section>
+				<section>
+					<div class="column ec-overlay text-center">
+						<br>
+						<!--<div id="Short-Count" class="clock"></div>
+						<h2>time left to make your impact</h2>-->
+						<div class="column large-4">
+							<div class="ec-super-size ec-dark-blue">$120,939</div>
+							<h2>dollars raised</h2>
+						</div>
+						<div class="column large-4">
+							<div class="ec-super-size ec-dark-blue"><span class="shivasurya-count">274</span></div>
+							<h2>alumni challenge donors</h2>
+						</div>
+						<div class="column large-4">
+							<div class="ec-super-size ec-dark-blue"><span class="shivasurya-count">657</span></div>
+							<h2>number of gifts</h2>
+						</div>
+						<!-- to be added -->
+						<div style="clear:both;"><br></div>
+						<div class="row">
+							<div onclick="move();move2();" class="column large-6">
+								<div id="myProgress">
+									<div id="myBar">87%</div>
+								</div>
+								<h2>500 gifts to scholarships</h2>
+							</div>
+							<div onclick="move();move2();" class="column large-6">
+								<div id="myProgress2">
+									<div id="myBar2">2017s</div>
+								</div>
+								<h2>All decades represented since the 1930s</h2>
+							</div>
+						</div>
+						<div class="row column">
+							<h2 class="text-center">Donor gifts</h2>
+							<div class="flex-list flex-around">
+								<div>
+									<div class="balls balls-small ec-super-size"><h1 class="body-font">325</h1></div>
+									<p>Alumni</p>
+								</div>
+								<div>
+									<div class="balls balls-small ec-super-size ec-dark-blue-bg"><h1 class="body-font">100</h1></div>
+									<p>Current Students</p>
+								</div>
+								<div>
+									<div class="balls balls-small ec-super-size"><h1 class="body-font">219</h1></div>
+									<p>Faculty and Staff</p>
+								</div>
+								<div>
+									<div class="balls balls-small ec-super-size ec-dark-blue-bg"><h1 class="body-font">39</h1></div>
+									<p>Parents</p>
+								</div>
+								<div>
+									<div class="balls balls-small ec-super-size"><h1 class="body-font">25</h1></div>
+									<p>Friends</p>
+								</div>
+								<br>
+							</div>
+						</div>
+						<div class="row column">
+							<div class="flex-list flex-around">
+								<div>
+									<div class="balls ec-super-size balls-big ec-alt-blue hack-25"><p>207</p></div>
+									<h2 class="text-center">first-time donors</h2>
+								</div>
+								<div>
+									<div class="balls ec-super-size balls-big ec-alt-blue hack-25"><p>214</p></div>
+									<h2 class="text-center">members of<br>EC Loyal Society</h2>
+								</div>
+							</div>
+						</div>
+						<br>
+						<div class="row column">
+							<div class="flex-list flex-around text-center">
+								<div class="flex-around">
+									<div class="balls ec-super-size balls-mid hack-25"><p>34</p></div>
+									<h2>states represented</h2>
+								</div>
+								<div>
+									<div class="balls ec-super-size balls-mid hack-25 ec-dark-blue-bg"><p>99</p></div>
+									<h2>oldest donor</h2>
+								</div>
+								<!--<div>
+									<div class="balls ec-super-size balls-mid hack-25"><p>43</p></div>
+									<h2>Bluejay athletics gifts</h2>
+								</div>-->
+							</div>
+						</div>
+						<div class="column medium-8 small-centered ec-mobile-hide">
+							<br>
+							<a href="https://give.evertrue.com/elmhurst" class="button large expanded" target="_blank"><span class="ec-super-size">Make A Gift</span></a>
+							<br>
+						</div>
+						<div class="column large-9 small-centered">
+							<hr>
+						</div>
+					</div>
+					<div style="clear:both;"></div>
+					<!-- done -->
+				</section>
+				<section class="column large-9 small-centered ec-overlay alt-blue-rows">
+					<div class="row">
+						<div class="column">
+							<h1 class="text-center body-font ec-light-blue">Ways to Boost your Gift</h1>
+							<p><strong>Power of Many Challenge</strong>
+							<br>
+							Board of Trustee member <b>Gina Prochaska ’88</b> is providing a challenge to help secure 250 alumni gifts of $50 or more. These gifts will be matched 2:1, up to $25,000!</p>
+							<p><strong>Barbara and Robert W. Swords Light of Knowledge Scholarship Challenge</strong>
+							<br>
+							Susan Swords Steffen will match all gifts 2:1 made from alumni from the Classes of 1968-1988 supporting the Barbara and Robert W. Swords Light of Knowledge Scholarship (up to $2,500).</p>
+							<p><strong>World Series Champion Chicago Cubs Tickets</strong>
+							<br>
+							Any donor making a gift of $50 or more will be entered to win two Chicago Cubs tickets for a home game during the 2017 Season. Current students also will be entered to win the Cubs tickets with a gift of $25 or more.</p>
+							<p><strong>Homecoming 2017 Alumni Tailgate Package</strong>
+							<br>
+							With a gift of $50 or more, Elmhurst alumni will be entered to win a reserved tailgate spot at Homecoming 2017. This package also includes food, non-alcoholic beverages for up to 20 people and the use of the alumni pop-up tent.</p>
+							<br>
+							<hr>
+						</div>
+					</div>
+				</section>
+				<section id="Minus-100" class="column large-9 small-centered ec-overlay alt-blue text-center">
+					<h1 class="body-font ec-light-blue">Ways to Spread the Word</h1>
+					<p>Right-click an image to save to your computer and share on social media!</p>
+					<div class="ec-flex-list">
+						<div><a href="images/DayofGiving_FB_cover.jpg"><img src="images/DayofGiving_FB_cover.jpg"></a><p>Facebook cover picture</p></div>
+						<div><a href="images/DayofGiving_FB_profile.jpg"><img src="images/DayofGiving_FB_profile.jpg"></a><p>Facebook profile picture</p></div>
+						<div><a href="images/DayofGiving_Twitter_cover.jpg"><img src="images/DayofGiving_Twitter_cover.jpg"></a><p>Twitter cover picture</p></div>
+						<div><a href="images/DayofGiving_Twitter_profile.jpg"><img src="images/DayofGiving_Twitter_profile.jpg"></a><p>Twitter profile picture</p></div>
+						<div><a href="images/DayofGiving_SNS_profile1.jpg"><img src="images/DayofGiving_SNS_profile1.jpg"></a><p>Instagram profile picture</p></div>
+						<div><a href="images/DayofGiving_SNS_profile2.jpg"><img src="images/DayofGiving_SNS_profile2.jpg"></a><p>Instagram picture</p></div>
+						<div><a href="images/DayofGiving_profile_picture_gave.jpg"><img src="images/DayofGiving_profile_picture_gave.jpg"></a><p>Instagram profile picture "I Gave."</p></div>
+					</div>
+					<br>
+				</section>
+			</div>
+			<figure id="EC-Hero2" class="ec-hero"></figure>
+		</main>
+		<footer class="row expanded">
+			<div class="column large-8 large-offset-2 text-center">
+				<br>
+				<h2>#ecDayOfGiving</h2>
+				<p>
+					<a href="https://www.facebook.com/ElmCol/" target="_blank"><i id="Facebook" class="fa fa-facebook-official" aria-hidden="true"></i></a>
+					<a href="https://twitter.com/ElmhurstCollege" target="_blank"><i id="Twitter" class="fa fa-twitter-square" aria-hidden="true"></i></a>
+					<a href="https://www.instagram.com/elmhurstcollege/" target="_blank"><i id="Instagram" class="fa fa-instagram" aria-hidden="true"></i></a>
+				</p>
+				<a class="twitter-timeline" data-width="800" data-height="600" href="https://twitter.com/ElmhurstCollege">Tweets by ElmhurstCollege</a>
+				<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+				<p>
+					<br><b>Elmhurst College Office of Development and Alumni Relations</b>
+					<br>190 S. Prospect Avenue., Elmhurst, Illinois 60126
+					<br><a href="mailto:scholarships@elmhurst.edu">scholarships@elmhurst.edu</a> &bull; (866) 794-1075
+				</p>
+				<br>
+			</div>
+		</footer>
+		<script>
+			$(document).ready(function(){
+				$('.shivasurya-count').each(function () {
+					$(this).prop('Counter',0).animate({
+						Counter: $(this).text()
+					}, {
+						duration: 2000,
+						easing: 'swing',
+						step: function (now) {
+							$(this).text(Math.ceil(now));
+						}
+					});
+				});
+			});
+			$('.shivasurya-count').click(function(){
+				$('.shivasurya-count').each(function () {
+					$(this).prop('Counter',0).animate({
+						Counter: $(this).text()
+					}, {
+						duration: 2000,
+						easing: 'swing',
+						step: function (now) {
+							$(this).text(Math.ceil(now));
+						}
+					});
+				});
+			});
+			var clock;
+			$(document).ready(function() {
+				var currentDate = new Date();
+				var futureDate  = new Date("April 20, 2017 12:00 AM");
+				var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
+				clock = $('#Long-Count').FlipClock(diff, {
+					clockFace: 'DailyCounter',
+					countdown: true
+				});
+			});
+			var clock;
+			$(document).ready(function() {
+				var currentDate = new Date();
+				var futureDate  = new Date("April 21, 2017 12:00 AM");
+				var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
+				clock = $('#Short-Count').FlipClock(diff, {
+					countdown: true
+				});
+			});
+			$(document).foundation();
+
+			/* to be added */
+			window.onload = function() {
+				move();
+				move2();
+			}
+			function move() {
+				var elem = document.getElementById("myBar"); 
+				var width = 10;
+				var id = setInterval(frame, 10);
+				function frame() {
+					if (width >= 87) {
+						clearInterval(id);
+					} else {
+						width++; 
+						elem.style.width = width + '%'; 
+						elem.innerHTML = width * 1 + '%';
+					}
+				}
+			}
+			function move2() {
+				var elem = document.getElementById("myBar2"); 
+				var width = 10;
+				var id = setInterval(frame, 10);
+				function frame() {
+					if (width >= 85) {
+						clearInterval(id);
+					} else {
+						width++; 
+						elem.style.width = width + '%';
+						elem.innerHTML = 1925 + width + 's';
+					}
+				}
+			}
+		</script>
+		<script src="js/vendor/flipclock.min.js"></script>
+		<script src="js/vendor/what-input-EC-mini.js"></script>
+	</body>
+</html>
+<!-- EOF -->
