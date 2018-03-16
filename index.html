@@ -57,7 +57,6 @@
 							<div class="ec-super-size ec-dark-blue"><span class="shivasurya-count">657</span></div>
 							<h2>number of gifts</h2>
 						</div>
-						<!-- to be added -->
 						<div style="clear:both;"><br></div>
 						<div class="row">
 							<div onclick="move();move2();" class="column large-6">
@@ -122,10 +121,6 @@
 									<div class="balls ec-super-size balls-mid hack-25 ec-dark-blue-bg"><p>99</p></div>
 									<h2>oldest donor</h2>
 								</div>
-								<!--<div>
-									<div class="balls ec-super-size balls-mid hack-25"><p>43</p></div>
-									<h2>Bluejay athletics gifts</h2>
-								</div>-->
 							</div>
 						</div>
 						<div class="column medium-8 small-centered ec-mobile-hide">
@@ -138,7 +133,6 @@
 						</div>
 					</div>
 					<div style="clear:both;"></div>
-					<!-- done -->
 				</section>
 				<section class="column large-9 small-centered ec-overlay alt-blue-rows">
 					<div class="row">
@@ -197,90 +191,8 @@
 				<br>
 			</div>
 		</footer>
-		<script>
-			$(document).ready(function(){
-				$('.shivasurya-count').each(function () {
-					$(this).prop('Counter',0).animate({
-						Counter: $(this).text()
-					}, {
-						duration: 2000,
-						easing: 'swing',
-						step: function (now) {
-							$(this).text(Math.ceil(now));
-						}
-					});
-				});
-			});
-			$('.shivasurya-count').click(function(){
-				$('.shivasurya-count').each(function () {
-					$(this).prop('Counter',0).animate({
-						Counter: $(this).text()
-					}, {
-						duration: 2000,
-						easing: 'swing',
-						step: function (now) {
-							$(this).text(Math.ceil(now));
-						}
-					});
-				});
-			});
-			var clock;
-			$(document).ready(function() {
-				var currentDate = new Date();
-				var futureDate  = new Date("April 20, 2017 12:00 AM");
-				var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
-				clock = $('#Long-Count').FlipClock(diff, {
-					clockFace: 'DailyCounter',
-					countdown: true
-				});
-			});
-			var clock;
-			$(document).ready(function() {
-				var currentDate = new Date();
-				var futureDate  = new Date("April 21, 2017 12:00 AM");
-				var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
-				clock = $('#Short-Count').FlipClock(diff, {
-					countdown: true
-				});
-			});
-			$(document).foundation();
-
-			/* to be added */
-			window.onload = function() {
-				move();
-				move2();
-			}
-			function move() {
-				var elem = document.getElementById("myBar"); 
-				var width = 10;
-				var id = setInterval(frame, 10);
-				function frame() {
-					if (width >= 87) {
-						clearInterval(id);
-					} else {
-						width++; 
-						elem.style.width = width + '%'; 
-						elem.innerHTML = width * 1 + '%';
-					}
-				}
-			}
-			function move2() {
-				var elem = document.getElementById("myBar2"); 
-				var width = 10;
-				var id = setInterval(frame, 10);
-				function frame() {
-					if (width >= 85) {
-						clearInterval(id);
-					} else {
-						width++; 
-						elem.style.width = width + '%';
-						elem.innerHTML = 1925 + width + 's';
-					}
-				}
-			}
-		</script>
+		<script src="js/app.js"></script>
 		<script src="js/vendor/flipclock.min.js"></script>
 		<script src="js/vendor/what-input-EC-mini.js"></script>
 	</body>
 </html>
-<!-- EOF -->
